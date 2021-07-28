@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-const Individual = (char) => {
-  <figure>
+const Individual = ({ char }) => {
+
+  return (<figure>
     <img src={char.photoUrl} alt={char.name} />
     <figcaption>
       <p>name: {char.name}</p>
@@ -11,7 +13,8 @@ const Individual = (char) => {
       <p>profession: {char.profession}</p>
       <p>position: {char.position}</p>
     </figcaption>
-  </figure>;
+  </figure>
+  );
 };
 
 export default Individual;

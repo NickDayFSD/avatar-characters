@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharacterDetails from '../characters/CharacterDetails';
+import Individual from '../characters/CharacterDetails';
 import { fetchIndividual } from '../services/avatarApi';
 
 export default class AvatarIndividual extends Component {
@@ -8,8 +8,8 @@ export default class AvatarIndividual extends Component {
     character: {}
   }
 
-  async componentDidMount(id) {
-    const character = await fetchIndividual(id);
+  async componentDidMount() {
+    const character = await fetchIndividual(this.props.match.params.id);
     this.setState({ character, loading: false });
   }
 
@@ -21,6 +21,6 @@ export default class AvatarIndividual extends Component {
       alt="Loading"
     />;
 
-    return <CharacterDetails char={character} />;
+    return <Individual char={character} />;
   }
 }

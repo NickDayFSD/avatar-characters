@@ -1,6 +1,6 @@
 import React from 'react';
 import AvatarCharacters from '../containers/AvatarCharacters';
-import AvatarIndividual from '../characters/CharacterDetails';
+import AvatarIndividual from '../containers/AvatarIndividual';
 import { 
   BrowserRouter as Router,
   Route,
@@ -9,18 +9,24 @@ import {
 
 export default function App() {
   return (
-    <Router>
-      <Switch>
-
-        <Route path="/">
-          <AvatarCharacters />
-        </Route>
-
-        <Route path="/character/:id">
-          <AvatarIndividual />
-        </Route>
-
-      </Switch>
-    </Router>
+    <div className="App">
+      <Router>
+        
+        <Switch>
+  
+          <Route path="/" exact={true}
+            render={routerProps => (
+              <AvatarCharacters {...routerProps}/>
+            )}>
+          </Route>
+  
+          <Route path="/character/:id" exact={true}
+            component={AvatarIndividual}
+          >
+          </Route>
+  
+        </Switch>
+      </Router>
+    </div>
   );
 }
