@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Character = ({ name, photoUrl, affiliation }) => (
+const Character = ({ id, name, photoUrl, affiliation }) => (
   <figure>
     <img src={photoUrl} alt={name}/>
     <figcaption>

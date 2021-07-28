@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CharacterList from '../characters/CharacterList';
-import fetchCharacters from '../services/avatarApi';
+import { fetchCharacters } from '../services/avatarApi';
 
 export default class AvatarCharacters extends Component {
   state = {
@@ -8,7 +8,7 @@ export default class AvatarCharacters extends Component {
     characters: []
   }
 
-  async ComponentDidMount() {
+  async componentDidMount() {
     const characters = await fetchCharacters();
     this.setState({ characters, loading: false });
   }
@@ -16,10 +16,11 @@ export default class AvatarCharacters extends Component {
   render() {
     const { characters, loading } = this.state;
 
-    if(loading) return <img src="http://gph.is/1c5ob2p" alt="Loading" />;
+    if(loading) return <img
+      src="https://media.giphy.com/media/jyanYxvGz3MOc/giphy.gif"
+      alt="Loading"
+    />;
 
     return <CharacterList characters={characters} />;
   }
 }
-
-// loader gif = http://gph.is/1c5ob2p

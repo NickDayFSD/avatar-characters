@@ -8,7 +8,7 @@ describe('Character Loader', () => {
 
     screen.getByAltText('Loading');
 
-    const ul = await screen.findByRole('generic');
+    const ul = await screen.findByRole('list');
     expect(ul).not.toBeEmptyDOMElement();
   });
 });
