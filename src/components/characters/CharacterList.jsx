@@ -14,10 +14,14 @@ const CharacterList = ({ characters }) => {
 };
 
 CharacterList.PropTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  photoUrl: PropTypes.string.isRequired,
-  affiliation: PropTypes.string.isRequired
+  characters: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      photoUrl: PropTypes.string.isRequired,
+      affiliation: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default CharacterList;
